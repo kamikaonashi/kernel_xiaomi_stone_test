@@ -1818,7 +1818,6 @@ restore_flag:
 
 static void f2fs_enable_checkpoint(struct f2fs_sb_info *sbi)
 {
-<<<<<<< HEAD
 	int retry = DEFAULT_RETRY_IO_COUNT;
 
 	/* we should flush all the data to keep data consistency */
@@ -1831,10 +1830,7 @@ static void f2fs_enable_checkpoint(struct f2fs_sb_info *sbi)
 	if (unlikely(retry < 0))
 		f2fs_warn(sbi, "checkpoint=enable has some unwritten data.");
 
-	down_write(&sbi->gc_lock);
-=======
 	f2fs_down_write(&sbi->gc_lock);
->>>>>>> 8822527dced9 (Kernel: Xiaomi kernel changes for POCO X5 5G Android S)
 	f2fs_dirty_to_prefree(sbi);
 
 	clear_sbi_flag(sbi, SBI_CP_DISABLED);
